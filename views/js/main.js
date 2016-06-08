@@ -518,7 +518,7 @@ function updatePositions() {
 
   var items = document.getElementsByClassName('mover');
 
-  var bodyScrollDiv = document.body.scrollTop / 1250,
+  var bodyScrollDiv = document.body.scrollTop / 1250;
   var modu = [];
 
   for (var i = 0; i< 5; i++) {
