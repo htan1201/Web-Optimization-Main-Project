@@ -515,6 +515,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   console.log("======================= New call to updatePositions =======================");
+  var bodyScrollTop = 1394
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
     console.log("----");
@@ -522,6 +523,7 @@ function updatePositions() {
     console.log("i % 5 = " + (i % 5));
     console.log("document.body.scrollTop = " + document.body.scrollTop);
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    console.log(phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
