@@ -522,7 +522,7 @@ function updatePositions() {
   var modu = [];
 
   for (var i = 0; i< 5; i++) {
-    modu[i] = (100 * Math.sin(a + i)) ;//- 1250;
+    modu[i] = (100 * Math.sin(bodyScrollDiv + i)) ;//- 1250;
   }
 
   // for (var i = 0; i < items.length; i++) {
