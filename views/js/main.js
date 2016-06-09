@@ -532,7 +532,7 @@ function updatePositions() {
 
   //this for loop stores the calculation of 'phase' into an array that goes from 0 to 4.
   for (var i = 0; i< 5; i++) {
-    modu[i] = (100 * Math.sin(bodyScrollDiv + i)) ;//- 1250;
+    modu[i] = (100 * Math.sin(bodyScrollDiv + i)) - 1250;
   }
 
   for (var i = 0; i < items.length; i++) {
