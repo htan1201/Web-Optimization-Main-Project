@@ -1,19 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @htan1201
- Watch 1
-  Star 0
-  Fork 0 cperry24/Website-optimization
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathWebsite-optimization/views/js/main.js
-c819555  on Feb 12
-@cperry24 cperry24 Finished Website Optimization Project
-1 contributor
-RawBlameHistory     582 lines (515 sloc)  24.9 KB
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
