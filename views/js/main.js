@@ -539,6 +539,7 @@ function updatePositions() {
 
   //by using getElementsByClassName() is more efficient than using querySelectorAll()
   var items = document.getElementsByClassName('mover');
+  var halfScreenWidth = ((window.innerWidth > 0) ? window.innerWidth : screen.width) / 2; // get window.innerWidth and divide by half
 
   //by assigning a variable to the document.body.scrollTop /1250, saves 200 steps of recalculating it, everytime it is called.
   var bodyScrollDiv = document.body.scrollTop / 1250;
@@ -550,7 +551,7 @@ function updatePositions() {
   }
 
   for (var i = 0; i < items.length; i++) {
-    items[i].style.transform = 'translateX(' + modu[i % 5] + 'px)';
+    items[i].style.transform = 'translateX(' + (items[i].basicLeft + modu[i % 5] - halfScreenWidth) + 'px)';
     // items[i].style.left = items[i].basicLeft + modu[i % 5] + 'px';
   }
 
