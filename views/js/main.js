@@ -510,6 +510,20 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
+//sets global object value to initial false
+window.animating = false;
+
+//checks if global animating object is true 
+function pizzasAnimating() {
+  if (!window.animating) {
+    window.animating = true;
+//runs updatePositions function every time RAF results in true
+    window.requestAnimationFrame(updatePositions); 
+  }
+}
+
+window.requestAnimationFrame(updatePositions);
+
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
@@ -548,6 +562,7 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
+  window.animating = false;
 }
 
 // runs updatePositions on scroll
