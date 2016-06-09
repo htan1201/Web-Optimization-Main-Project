@@ -558,8 +558,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   //there is no need to append 200 pizzas.
-  //Hence, changing it to 100 will do just fine.
-  for (var i = 0; i < 100; i++) {
+  //Hence, changing it to 30 will do just fine.
+  for (var i = 0; i < 30; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
