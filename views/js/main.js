@@ -575,5 +575,3 @@ document.addEventListener('DOMContentLoaded', function() {
   window.items = document.getElementsByClassName('mover'); // stores the mover class needed for the loop as a global variable
   updatePositions();
 });
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
