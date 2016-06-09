@@ -421,7 +421,7 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+  // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   // function determineDx (elem, size) {
   //   var oldWidth = elem.offsetWidth;
   //   var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
@@ -463,7 +463,7 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
     }
 
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer")
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer")
     
     for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth + "%";
@@ -514,21 +514,26 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  console.log("======================= New call to updatePositions =======================");
 
-  var items = document.getElementsByClassName('mover');
-
-  var bodyScrollDiv = document.body.scrollTop / 1250;
-  var modu = [];
-
-  for (var i = 0; i< 5; i++) {
-    modu[i] = (100 * Math.sin(bodyScrollDiv + i)) ;//- 1250;
-  }
-
+  /* The following code will be calculating the variable phase over and over again whenever this function is called.
+     Hence, if there are 200 pizzas drawn in the page, it will be recalculating the phase of each and every pizza.
+     */
   // for (var i = 0; i < items.length; i++) {
   //   var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
   //   items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   // }
+
+  //by using getElementsByClassName() is more efficient than using querySelectorAll()
+  var items = document.getElementsByClassName('mover');
+
+  //by assigning a variable to the document.body.scrollTop /1250, saves 200 steps of recalculating it, everytime it is called.
+  var bodyScrollDiv = document.body.scrollTop / 1250;
+  var modu = [];
+
+  //this for loop stores the calculation of 'phase' into an array that goes from 0 to 4.
+  for (var i = 0; i< 5; i++) {
+    modu[i] = (100 * Math.sin(bodyScrollDiv + i)) ;//- 1250;
+  }
 
   for (var i = 0; i < items.length; i++) {
     items[i].style.left = items[i].basicLeft + modu[i % 5] + 'px';
@@ -551,6 +556,8 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  //there is no need to append 200 pizzas.
+  //Hence, changing it to 100 will do just fine.
   for (var i = 0; i < 100; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
